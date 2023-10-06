@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas para el modelo alpha.clase_alpha -->
+    <record id="view_clase_alpha_tree" model="ir.ui.view">
+        <field name="name">clase.alpha.tree</field>
+        <field name="model">alpha.clase_alpha</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="ubicacion"/>
+                <field name="usuarios_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_clase_alpha_form" model="ir.ui.view">
+        <field name="name">clase.alpha.form</field>
+        <field name="model">alpha.clase_alpha</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="ubicacion"/>
+                        <field name="usuarios_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista para el modelo res.users -->
+    <record id="view_usuario_form" model="ir.ui.view">
+        <field name="name">usuario.form</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="clase_alpha_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acciones de menú -->
+    <record id="action_clase_alpha" model="ir.actions.act_window">
+        <field name="name">Clases Alpha</field>
+        <field name="res_model">alpha.clase_alpha</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_usuario" model="ir.actions.act_window">
+        <field name="name">Usuarios</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menús -->
+    <menuitem id="menu_alpha_root" name="Alpha" sequence="10"/>
+    <menuitem id="menu_alpha_clases" name="Clases" parent="menu_alpha_root" sequence="10"/>
+    <menuitem id="menu_alpha_usuarios" name="Usuarios" parent="menu_alpha_root" sequence="20"/>
+
+    <menuitem id="menu_clases_alpha" name="Clases Alpha" parent="menu_alpha_clases" action="action_clase_alpha"/>
+    <menuitem id="menu_usuarios" name="Usuarios" parent="menu_alpha_usuarios" action="action_usuario"/>
+</odoo>

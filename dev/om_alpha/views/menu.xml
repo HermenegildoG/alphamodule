@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="menu_alpha_root"
+              name="Alpha"
+              sequence="10"
+    />
+    <menuitem id="menu_alpha_clases"
+              name="Clases"
+              parent="menu_alpha_root"
+              sequence="10"
+    />
+
+</odoo>
